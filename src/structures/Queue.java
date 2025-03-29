@@ -1,4 +1,6 @@
-public class Line<E> {
+package structures;
+
+public class Queue<E> {
     private Node<E> top;
     private int length;
 
@@ -20,7 +22,7 @@ public class Line<E> {
             }
         }
         else{
-            System.out.println("Line is empty");
+            System.out.println("structures.Line is empty");
         }
     }
 

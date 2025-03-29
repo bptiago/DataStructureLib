@@ -1,3 +1,5 @@
+package structures;
+
 public class Node<E> {
     private E element;
     private Node<E> next;

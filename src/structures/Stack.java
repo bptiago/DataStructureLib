@@ -1,3 +1,5 @@
+package structures;
+
 public class Stack<E> {
     private Node<E> top;
     private int length;
