@@ -1,36 +1,55 @@
 package structures;
 
 public class Queue<E> {
-    private Node<E> top;
+    private Node<E> next;
+    private Node<E> rear;
     private int length;
+
+    public Queue(Node<E> next, int length) {
+        this.next = next;
+        this.rear = rear;
+        this.length = length;
+    }
+
+    public Queue() {
+        next = rear = null;
+        length = 0;
+    }
 
     public boolean enqueue(E element){
         Node<E> node = new Node<>(element);
-        node.setNext(this.top);
-        this.top = node;
-        this.length++;
+
+        if (rear == null) {
+            rear = node;
+            next = node;
+            this.length++;
+            return true;
+        } else {
+            rear.setNext(node);
+            rear = node;
+        }
+
+        length++;
         return true;
     }
 
-    public void dequeue(E element){
-        if (!isEmpty()){
-            for (int i = length; i < -1; i--) {
-                if (this.top.getElement() == element){
-                    this.top = this.top.getNext();
-                    this.length--;
-                }
-            }
+    public E dequeue(){
+        if (isEmpty()){
+            System.out.println("Queue is empty");
+            return null;
         }
-        else{
-            System.out.println("structures.Line is empty");
+        E element = next.getElement();
+        next = next.getNext();
+
+        if (next == null){
+            rear = null;
         }
+        length--;
+        return element;
     }
 
     public boolean isEmpty(){
-        if (this.top == null){
-            return true;
-        }
-        return false;
+        return next == null;
     }
 
     public int getLength() {
@@ -41,11 +60,19 @@ public class Queue<E> {
         this.length = length;
     }
 
-    public Node<E> getTop() {
-        return top;
+    public Node<E> getNext() {
+        return next;
     }
 
-    public void setTop(Node<E> top) {
-        this.top = top;
+    public void setNext(Node<E> next) {
+        this.next = this.next;
+    }
+
+    public Node<E> getRear() {
+        return rear;
+    }
+
+    public void setRear(Node<E> rear) {
+        this.rear = rear;
     }
 }

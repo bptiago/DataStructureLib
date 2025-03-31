@@ -27,6 +27,7 @@ public class Main {
                 100,
                 100
         );
-        f.fill();
+        //f.stackFill();
+        f.queueFill();
     }
 }
