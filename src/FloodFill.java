@@ -27,6 +27,23 @@ public class FloodFill {
         queue = new Queue<>();
     }
 
+    private boolean isColorSimilar(int color1, int color2, int tolerance) {
+        // Bitwise, compara a diferença absoluta entre dois valores RGB
+        int r1 = (color1 >> 16) & 0xFF;
+        int g1 = (color1 >> 8) & 0xFF;
+        int b1 = color1 & 0xFF;
+
+        int r2 = (color2 >> 16) & 0xFF;
+        int g2 = (color2 >> 8) & 0xFF;
+        int b2 = color2 & 0xFF;
+
+        int difR = Math.abs(r1 - r2);
+        int difG = Math.abs(g1 - g2);
+        int difB = Math.abs(b1 - b2);
+
+        return (difR + difG + difB) > tolerance;
+    }
+
     public void stackFill() throws InterruptedException {
         int newColor = 0xFF0000FF;
         int oldColor = image.getRGB(startPoint.x, startPoint.y);
@@ -45,7 +62,7 @@ public class FloodFill {
             int y = point.y;
 
             // Bordas e cores diferentes do target
-            if (x < 0 || x >= m || y < 0 || y >= n || image.getRGB(x, y) != oldColor) {
+            if (x < 0 || x >= m || y < 0 || y >= n || isColorSimilar(image.getRGB(x, y), oldColor, 30)) {
                 continue;
             }
 
@@ -85,7 +102,7 @@ public class FloodFill {
             int y = point.y;
 
             // Bordas e cores diferentes do target
-            if (x < 0 || x >= m || y < 0 || y >= n || image.getRGB(x, y) != oldColor) {
+            if (x < 0 || x >= m || y < 0 || y >= n || isColorSimilar(image.getRGB(x, y), oldColor, 30)) {
                 continue;
             }
 
