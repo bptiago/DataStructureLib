@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
-        BufferedImage image = ImageIO.read(new File("assets/sample.jpg"));
+        BufferedImage image = ImageIO.read(new File("assets/sample.png"));
 
         ImagePanel imagePanel = new ImagePanel(image);
 

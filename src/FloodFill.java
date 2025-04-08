@@ -78,7 +78,7 @@ public class FloodFill {
         }
 
         try {
-            ImageIO.write(image, "jpg", new File("assets/output.jpg"));
+            ImageIO.write(image, "png", new File("assets/output.png"));
         } catch (IOException e) {
             e.fillInStackTrace();
         }
@@ -118,7 +118,7 @@ public class FloodFill {
         }
 
         try {
-            ImageIO.write(image, "jpg", new File("assets/output.jpg"));
+            ImageIO.write(image, "png", new File("assets/output.png"));
         } catch (IOException e) {
             e.fillInStackTrace();
         }
