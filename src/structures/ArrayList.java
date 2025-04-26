@@ -3,16 +3,16 @@ package structures;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class MyArrayList<E> {
+public class ArrayList<E> {
     private Object[] data;
     private int capacity = 10;
     private int freePos = 0;
 
-    public MyArrayList() {
+    public ArrayList() {
         data = new Object[capacity];
     }
 
-    public MyArrayList(int capacity) {
+    public ArrayList(int capacity) {
         this.capacity = capacity;
         data = new Object[capacity];
     }
